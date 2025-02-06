@@ -3,11 +3,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ccc;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    height: 100vh;
+    width: 100vw;
 }
+
 /* Estilos del menú */
 nav {
     background-color: black;
     padding: 15px 0;
+    width: 100vw;
 }
 nav ul {
     list-style-type: none;
@@ -15,6 +20,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    width: 100vw;
 }
 nav ul li {
     position: relative;
@@ -23,17 +29,18 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 20px; 
-    padding: 10px 15px; 
+    font-size: 20px;
+    padding: 10px 15px;
     display: block;
     transition: all 0.3s ease; /* Suaviza la transición */
 }
 nav ul li a:hover {
     color: #f2f2f2;
     background-color: #444;
-    transform: scale(1.1); 
+    transform: scale(1.1);
     border-radius: 5px;
 }
+
 /* Estilos del menú desplegable */
 nav ul li ul {
     display: none; /* Ocultamos el menú desplegable por defecto */
@@ -43,17 +50,15 @@ nav ul li ul {
     background-color: #333;
     padding: 0;
     list-style-type: none;
+    width: 200px;
 }
 nav ul li ul li {
     margin: 0;
-    width: 200px; /* Ancho del menú desplegable */
 }
-
 nav ul li ul li a {
     padding: 10px;
     font-size: 18px; /* Tamaño más pequeño para los submenús */
 }
-
 nav ul li ul li a:hover {
     background-color: #444;
     transform: scale(1.05); /* Efecto más pequeño que en el menú principal */
@@ -63,30 +68,74 @@ nav ul li ul li a:hover {
 nav ul li:hover ul {
     display: block;
 }
+
 /* Contenido para mostrar debajo del menú */
 .content {
     padding: 20px;
-    text-align: center;
     margin: 20px;
     padding: 20px;
+    width: 100vw;
 }
-.container {
+
+/* Estilos de los contenedores */
+.container, .containerIndex, .containerFormulario {
     background: white;
-    padding: 30px; /* Aumenta el padding para más espacio interno */
+    padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Aumenta el ancho del contenedor */
-    margin: 20px auto; /* Centrar el contenedor */
+    width: calc(80vw - 60px); /* Ajusta el ancho del contenedor */
+    margin: 20px auto; /* Centra el contenedor */
     text-align: left;
 }
+
 .containerIndex {
-    background: white;
-    padding: 30px; /* Aumenta el padding para más espacio interno */
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Aumenta el ancho del contenedor */
-    margin: 20px auto; /* Centrar el contenedor */
     text-align: center;
+}
+
+.containerFormulario {
+    width: calc(400px - 40px); /* Ajusta el ancho del formulario */
+    text-align: center;
+}
+
+.containerFormulario h1, h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos de formulario */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Añade negrita a las etiquetas */
+}
+input, textarea {
+    width: calc(100% - 20px); /* Ajusta el ancho de los campos de entrada */
+    padding: 10px;
+    margin-bottom: 15px; /* Añade margen inferior para separación */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no altere el ancho */
+}
+textarea {
+    resize: vertical; /* Permite ajustar el tamaño vertical del textarea si es necesario */
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease; /* Suaviza la transición */
+}
+button:hover {
+    background-color: #444;
+    transform: scale(1.05); /* Efecto hover para el botón */
+}
+a {
+    color: black;
 }
 p {
     margin: 10px;
@@ -96,97 +145,12 @@ section li {
     margin: 5px;
     padding: 5px;
 }
-.containerFormulario {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 400px; /* Ajusta el ancho del formulario */
-    margin: 0 auto; /* Centra el formulario */
-    text-align: center;
-}
-
-.containerFormulario h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.containerFormulario label {
-    display: block; /* Coloca las etiquetas en bloques para que cada una esté encima de su campo */
-    margin-bottom: 5px;
-    font-weight: bold; /* Añade negrita a las etiquetas para mayor visibilidad */
-}
-
-.containerFormulario input, 
-.containerFormulario textarea {
-    width: calc(100% - 20px); /* Ajusta el ancho de los campos de entrada */
-    padding: 10px;
-    margin-bottom: 15px; /* Añade margen inferior para separación */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Asegura que el padding no altere el ancho */
-}
-
-.containerFormulario textarea {
-    resize: vertical; /* Permite ajustar el tamaño vertical del textarea si es necesario */
-}
-
-.containerFormulario button {
-    width: 100%; /* Botón del mismo ancho que los campos */
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.containerFormulario button:hover {
-    background-color: #444;
-    transform: scale(1.05); /* Efecto hover para el botón */
-}
-a {   
-    color: black;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 20px; /* Espacio debajo del título */
-}
-h2{
-    text-align: center;
-}
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-button {
-    width: 100%;
-    padding: 10px;
-    background-color:  #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    color: #f2f2f2;
-    background-color: #444;
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
-    border-radius: 5px;
-}
 .video-background {
-    position: absolute;
+    position: fixed; /* Cambiado de absolute a fixed */
     top: 0;
     left: 0;
-    object-fit: cover; /* El video cubre toda la pantalla sin deformarse */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* El video cubrirá todo el área sin deformarse */
     z-index: -1; /* Envía el video al fondo */
 }
-
